@@ -9,4 +9,4 @@
 # 5.Empty Road
 ![shot](Outputs\empty_road.jpg)
 # 6.Changing Floor
-![shot](Outputs\morphing.jpg)
+![shot](Outputs\changed_floor.jpg)
