@@ -3,8 +3,8 @@ import cv2
 def sticker_face(img):
     img_gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     detector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-    faces = detector.detectMultiScale(img_gray, 1.3)
-    face_sticker = cv2.imread("Inputs\sid2.sid2.png")
+    faces = detector.detectMultiScale(img_gray)
+    face_sticker = cv2.imread("Inputs\sid.png")
     for face in faces:
         x, y, w, h = face
         sticker = cv2.resize(face_sticker,[w,h])
@@ -24,17 +24,18 @@ def sticker_eye_lips(img):
     eye_detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_eye_tree_eyeglasses.xml")
     lip_detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_smile.xml")
 
-    lip_sticker = cv2.imread("Inputs\emoji.png")
-    glasses_sticker = cv2.imread("Inputs\emoji.png")
+    lip_sticker = cv2.imread("Inputs\sid.png")
+    glasses_sticker = cv2.imread("Inputs\sid.png")
 
-    faces = face_detector.detectMultiScale(img_gray, 1.3)    
+    faces = face_detector.detectMultiScale(img_gray)    
 
     for face in faces:
         x, y, w, h = face
-        face_part = img_gray[x:x+h, y:y+w] 
+        face_part = img_gray[y:y+h , x:x+w]
+        face = img[y:y+h , x:x+w]
 
-        lips = lip_detector.detectMultiScale(face_part, 1.3, minSize=(20, 50), maxSize=(70,200))
-        eyes = eye_detector.detectMultiScale(face_part, 1.5, minSize=(80, 90))
+        lips = lip_detector.detectMultiScale(face_part)#, 1.3, minSize=(20, 50), maxSize=(70,200))
+        eyes = eye_detector.detectMultiScale(face_part)#, 1.5, minSize=(80, 90))
 
         
         for lip in lips:
@@ -44,36 +45,36 @@ def sticker_eye_lips(img):
                     for j in range(w):
                         if sticker[i][j][0] == sticker[i][j][1] == sticker[i][j][2] ==0 or sticker[i][j][0] == sticker[i][j][1] == sticker[i][j][2] ==255:
                             sticker[i][j] = img[y+i,x+j]
-                img[y:y+h,x:x+w] = sticker
+                face = sticker
         
-        w_g=1
-        h_g=1
-        x_g=600
-        y_g=400
-        for eye in eyes:
-            x, y, w, h = eye
-            w_g += w
-            if h > h_g:
-                h_g=h
-            if x < x_g:
-                x_g=x
-            if y < y_g:
-                y_g=y
+        # w_g=1
+        # h_g=1
+        # x_g=600
+        # y_g=400
+        # for eye in eyes:
+        #     x, y, w, h = eye
+        #     w_g += w
+        #     if h > h_g:
+        #         h_g=h
+        #     if x < x_g:
+        #         x_g=x
+        #     if y < y_g:
+        #         y_g=y
             
 
-        sticker_2 = cv2.resize(glasses_sticker,[w_g, h_g])
-        for i in range(h_g):
-            for j in range(w_g):
-                if sticker_2[i][j][0] == sticker_2[i][j][1] == sticker_2[i][j][2] ==0:
-                    sticker_2[i][j] = img[y_g+i,x_g+j]
-        img[y_g:y_g+h_g,x_g:x_g+w_g] = sticker_2
+        # sticker_2 = cv2.resize(glasses_sticker,[w_g, h_g])
+        # for i in range(h_g):
+        #     for j in range(w_g):
+        #         if sticker_2[i][j][0] == sticker_2[i][j][1] == sticker_2[i][j][2] ==0:
+        #             sticker_2[i][j] = img[y_g+i,x_g+j]
+        # img[y_g:y_g+h_g,x_g:x_g+w_g] = sticker_2
 
     return img
 
 
 def chess_face(img):
     face_datector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-    faces = face_datector.detectMultiScale(img, 1.3)
+    faces = face_datector.detectMultiScale(img)
     for face in faces:
         x, y, w, h = face
         face_img = img[y:y+h, x:x+w]
