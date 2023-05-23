@@ -1,12 +1,12 @@
 # 1.Face Morphing
-![shot](Outputs\morphing.jpg)
+![shot](Outputs/morphing.jpg)
 # 2.Black Hole
-![shot](Outputs\black_hole.jpg)
+![shot](Outputs/black_hole.jpg)
 # 3.Sketch Picture
-![shot](Outputs\sketch.jpg)
+![shot](Outputs/sketch.jpg)
 # 4.Secret Text
-![shot](Outputs\secret.jpg)
+![shot](Outputs/secret.jpg)
 # 5.Empty Road
-![shot](Outputs\empty_road.jpg)
+![shot](Outputs/empty_road.jpg)
 # 6.Changing Floor
-![shot](Outputs\changed_floor.jpg)
+![shot](Outputs/changed_floor.jpg)

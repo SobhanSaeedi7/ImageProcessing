@@ -1,6 +1,6 @@
 # 1.Batman
 
-![batman](Outputs\Batman.jpg)
+![batman](Outputs/Batman.jpg)
 
 # 2.TV noise
 
