@@ -8,7 +8,7 @@
 ![shot](Outputs/pink_balloons.jpg)
 
 # 4. Skin Detection
-![shot]()
+![shot](Outputs/skin_detedtion.jpg)
 
 # 5. Green Screen Technique
 ![shot](Outputs/green_screen_technique.jpg)
